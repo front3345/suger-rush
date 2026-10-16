@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff9f3">
+  <title>Sugar Rush | Sweet Moments</title>
+  <meta name="description" content="Sugar Rush - dreamy cakes, cozy coffee and sweet treats. Create an account and get 20% off your first order.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sugar Rush | Sweet Moments">
+  <meta property="og:description" content="Life is sweeter with a little Sugar Rush. Create an account and get 20% off with code SUGARRUSH20.">
+  <!-- NOTE: after you publish the site, change this to the full URL of the image (https://your-site.com/images/...) -->
+  <meta property="og:image" content="./Floating%20Donuts%20in%20Creamy%20Milk%20Splash.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧁</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- PROMO BAR -->
+  <div class="promo-bar" id="promo-bar">
+    🎉 Create an account and get 20% off your order! Use code
+    <strong>SUGARRUSH20</strong>
+    <a id="promo-register-link">Sign up now</a>
+    <button class="promo-close" id="promo-close" type="button" aria-label="Close banner">×</button>
+  </div>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+      <div class="navbar-inner w-100 d-flex flex-wrap align-items-center justify-content-between gap-3">
+
+        <a href="#home" class="logo">
+          <span class="logo-icon">♡</span>
+          <span>Sugar Rush<span class="logo-heart">♥</span></span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#sugarRushNavbar"
+          aria-controls="sugarRushNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="sugarRushNavbar">
+
+          <ul class="navbar-nav mx-auto mb-3 mb-lg-0 nav-links">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#products">Our Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="#special-deals">Special Deals</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+          </ul>
+
+          <div class="nav-actions">
+
+            <button class="wishlist-nav-button" id="wishlist-nav-btn" type="button" aria-label="Wishlist">
+              ♥ <span id="wishlist-count" class="wishlist-count-badge">0</span>
+            </button>
+
+            <button class="auth-button" id="auth-nav-btn" type="button">Log In</button>
+
+            <button class="cart-button" id="cart-button" type="button">
+              ♡ Cart <span id="cart-count" class="cart-count-badge">0</span>
+            </button>
+
+            <!-- Theme Toggle Button (Sun/Moon) -->
+            <button class="theme-toggle-button" id="theme-toggle-btn" type="button" aria-label="Toggle Dark/Light Mode">
+              ☀️
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+
+        <p class="eyebrow">A LITTLE JOY IN EVERY BITE</p>
+
+        <h1>
+          Life is sweeter with a little
+          <span>Sugar Rush.</span>
+        </h1>
+
+        <p class="hero-description">
+          From dreamy cakes to cozy coffee moments, find your next favorite treat.
+        </p>
+
+        <div class="hero-actions">
+
+          <a class="primary-button" href="#products">
+            Explore Our Menu →
+          </a>
+
+          <a class="text-link" href="#special-deals">
+            View Special Deals
+          </a>
+
+        </div>
+
+        <p class="hero-note">♡ Made for your sweetest moments</p>
+
+      </div>
+
+      <div class="hero-art">
+        <img
+          src="./Floating%20Donuts%20in%20Creamy%20Milk%20Splash.png"
+          alt="Three colorful donuts surrounded by a splash of milk"
+          class="hero-image"
+          onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='./images/Floating%20Donuts%20in%20Creamy%20Milk%20Splash.png';}"
+        >
+      </div>
+    </section>
+
+    <!-- CATEGORY CHIPS -->
+    <section class="category-strip" id="category-strip" aria-label="Browse by category">
+      <div class="category-chips" id="category-chips"></div>
+    </section>
+
+    <!-- SPECIAL DEALS -->
+    <section class="deals-section" id="special-deals">
+
+      <div class="section-heading">
+        <p class="eyebrow">A LITTLE EXTRA SWEETNESS</p>
+
+        <h2>Special <span>Deals</span> ♡</h2>
+
+        <p>
+          Enjoy 15% off selected treats. A little something sweet, just for you.
+        </p>
+      </div>
+
+      <div id="deals-container" class="products-grid">
+        <p class="loading">Loading sweet deals...</p>
+      </div>
+
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+
+      <div class="section-heading">
+        <p class="eyebrow">BAKED WITH LOVE</p>
+
+        <h2>Find Your <span>Happy Place</span></h2>
+
+        <p>Something sweet for every mood and every moment.</p>
+      </div>
+
+      <div class="product-controls">
+
+        <label class="search-box">
+          <span>⌕</span>
+
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search your favorite treat..."
+            aria-label="Search products"
+          >
+        </label>
+
+        <label class="select-box category-select">
+          <span class="sr-only">Category</span>
+
+          <select id="category-filter">
+            <option value="all">🍽️ All Categories</option>
+          </select>
+        </label>
+
+        <label class="select-box">
+          <span class="sr-only">Sort products</span>
+
+          <select id="sort-filter">
+            <option value="featured">✨ Newest Treats</option>
+            <option value="deals">🏷️ Special Deals</option>
+            <option value="name">💖 Our favorites</option>
+            <option value="name-desc">🥐 Freshly Baked</option>
+          </select>
+        </label>
+
+      </div>
+
+      <p id="results-count" class="results-count">Loading treats...</p>
+
+      <div id="products-container" class="products-grid">
+        <p class="loading">Freshly loading your treats...</p>
+      </div>
+
+    </section>
+
+    <!-- HOW TO ORDER -->
+    <section class="steps-section" id="how-it-works">
+
+      <div class="section-heading">
+        <p class="eyebrow">SO EASY, SO SWEET</p>
+
+        <h2>How to <span>Order</span></h2>
+
+        <p>Three little steps between you and something delicious.</p>
+      </div>
+
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <span class="step-number">1</span>
+          <h3>Pick your treats</h3>
+          <p>Browse the menu and add your favorites to the cart.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">2</span>
+          <h3>Create an account</h3>
+          <p>Sign up and use code <strong>SUGARRUSH20</strong> for 20% off.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">3</span>
+          <h3>Place your order</h3>
+          <p>Confirm your order and get ready to enjoy every bite.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (sample texts: replace with real customer reviews) -->
+    <section class="testimonials-section" id="reviews">
+
+      <div class="section-heading">
+        <p class="eyebrow">LOVED BY OUR GUESTS</p>
+
+        <h2>Sweet <span>Words</span></h2>
+
+        <p>A few kind things our customers have said about us.</p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <figure class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+
+          <blockquote>"Everything arrived fresh and tasted amazing. The perfect afternoon treat!"</blockquote>
+
+          <figcaption class="testimonial-author">
+            <span class="testimonial-avatar">S</span>
+
+            <div>
+              <strong>Sara M.</strong>
+              <span>Verified customer</span>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+
+          <blockquote>"Ordering was super easy and the discount code was a lovely surprise."</blockquote>
+
+          <figcaption class="testimonial-author">
+            <span class="testimonial-avatar">O</span>
+
+            <div>
+              <strong>Omar K.</strong>
+              <span>Verified customer</span>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+
+          <blockquote>"Cozy vibes in every bite. My whole family is hooked on Sugar Rush."</blockquote>
+
+          <figcaption class="testimonial-author">
+            <span class="testimonial-avatar">N</span>
+
+            <div>
+              <strong>Nour A.</strong>
+              <span>Verified customer</span>
+            </div>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="story-section" id="about">
+
+      <div class="story-decoration" aria-hidden="true">♡</div>
+
+      <div class="story-content">
+
+        <p class="eyebrow">MADE WITH LOVE & A LITTLE SUGAR</p>
+
+        <h2>Every treat has a <span>sweet story.</span></h2>
+
+        <p>
+          At Sugar Rush, we believe the sweetest moments are often the
+          simplest ones. A cozy coffee, a little afternoon treat, or a
+          slice of cake shared with someone you love.
+        </p>
+
+        <p>
+          Our menu is filled with delightful bites and little reasons
+          to smile. Whatever you're craving, there's always something
+          sweet waiting for you here.
+        </p>
+
+        <a href="#products" class="primary-button">
+          Find Your Sweet Treat →
+        </a>
+
+      </div>
+
+      <div class="story-card">
+        <span class="story-heart">♡</span>
+
+        <p class="story-card-title">OUR LITTLE PHILOSOPHY</p>
+
+        <h3>Life's better when it's a little sweeter.</h3>
+
+        <span class="story-card-footer">Baked into every moment ✧</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <a href="#home" class="footer-logo">Sugar Rush <span>♥</span></a>
+
+    <p>Made with love, served with a smile.</p>
+
+    <form class="newsletter" id="newsletter-form">
+      <p class="newsletter-title">Get sweet news &amp; offers ♡</p>
+
+      <div class="newsletter-row">
+        <input
+          type="email"
+          id="newsletter-email"
+          required
+          placeholder="Your email address"
+          aria-label="Email address"
+        >
+
+        <button type="submit">Subscribe</button>
+      </div>
+    </form>
+
+    <p class="copyright">
+      © <span id="current-year"></span> Sugar Rush. All sweet things reserved.
+    </p>
+
+  </footer>
+
+  <!-- SHOPPING CART -->
+  <div id="cart-overlay" class="cart-overlay" hidden></div>
+
+  <aside
+    id="cart-drawer"
+    class="cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Shopping cart"
+    aria-hidden="true"
+  >
+
+    <div class="cart-header">
+
+      <div>
+        <p class="drawer-eyebrow">A LITTLE TREAT FOR YOU</p>
+        <h2>Your Cart ♡</h2>
+      </div>
+
+      <button
+        id="close-cart"
+        class="round-close"
+        type="button"
+        aria-label="Close cart"
+      >×</button>
+
+    </div>
+
+    <div id="free-delivery" class="free-delivery" hidden>
+      <p id="free-delivery-text"></p>
+      <div class="free-delivery-bar">
+        <span id="free-delivery-fill"></span>
+      </div>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="empty-cart">Your cart is empty. Add something sweet!</p>
+    </div>
+
+    <div class="cart-footer">
+
+      <div class="promo-code-box">
+
+        <div class="promo-code-row">
+          <input
+            type="text"
+            id="promo-input"
+            placeholder="Promo code"
+            aria-label="Promo code"
+            autocomplete="off"
+          >
+
+          <button type="button" id="promo-apply-btn" class="promo-apply-btn">
+            Apply
+          </button>
+        </div>
+
+        <p id="promo-message" class="promo-message" hidden></p>
+
+      </div>
+
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">0.00</span>
+      </div>
+
+      <div class="cart-summary-row discount" id="cart-discount-row" hidden>
+        <span>
+          Promo (20% off)
+          <button type="button" class="promo-remove" id="promo-remove-btn">Remove</button>
+        </span>
+
+        <span id="cart-discount">-0.00</span>
+      </div>
+
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cart-total">0.00</strong>
+      </div>
+
+      <p class="cart-note">
+        Sweet moments are just a few clicks away.
+      </p>
+
+      <button id="place-order-btn" class="primary-button place-order-btn" type="button">
+        Place Order ♡
+      </button>
+
+      <button id="clear-cart" class="secondary-button" type="button">
+        Clear Cart
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <aside
+    id="wishlist-drawer"
+    class="cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Wishlist"
+    aria-hidden="true"
+  >
+
+    <div class="cart-header">
+
+      <div>
+        <p class="drawer-eyebrow">SAVED WITH LOVE</p>
+        <h2>Your Wishlist ♥</h2>
+      </div>
+
+      <button
+        id="close-wishlist"
+        class="round-close"
+        type="button"
+        aria-label="Close wishlist"
+      >×</button>
+
+    </div>
+
+    <div id="wishlist-items" class="cart-items">
+      <p class="empty-cart">Your wishlist is empty. Save your favorite treats!</p>
+    </div>
+
+    <div class="cart-footer">
+      <button id="clear-wishlist" class="secondary-button" type="button">
+        Clear Wishlist
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- PRODUCT DETAILS WITH UNIQUE REVIEWS -->
+  <div id="product-modal" class="product-modal" hidden>
+
+    <button
+      class="modal-backdrop"
+      type="button"
+      data-close-modal
+      aria-label="Close product details"
+    ></button>
+
+    <div
+      class="modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-product-name"
+    >
+
+      <button
+        id="close-product-modal"
+        class="round-close modal-x"
+        type="button"
+        aria-label="Close details"
+      >×</button>
+
+      <img id="modal-product-image" src="" alt="">
+
+      <div class="modal-info">
+
+        <p id="modal-product-category" class="product-category"></p>
+
+        <h2 id="modal-product-name"></h2>
+
+        <p id="modal-product-price" class="modal-price"></p>
+
+        <!-- Rating Summary -->
+        <div class="product-rating-summary">
+          <span>★</span>
+          <span id="modal-rating-avg">3.9</span>
+          <span class="reviews-count" id="modal-reviews-count">(120 reviews)</span>
+        </div>
+
+        <p id="modal-product-description" class="modal-description">
+          A lovely treat for your next sweet moment.
+        </p>
+
+        <button
+          id="modal-add-to-cart"
+          class="primary-button"
+          type="button"
+          style="width: 100%;"
+        >
+          Add to Cart ♡
+        </button>
+
+        <!-- Leave a Review Section -->
+        <div class="leave-review-box">
+
+          <h4>✏️ Leave a Review</h4>
+
+          <div class="star-rating-picker" id="star-picker">
+            <span data-value="1" class="active">★</span>
+            <span data-value="2" class="active">★</span>
+            <span data-value="3" class="active">★</span>
+            <span data-value="4" class="active">★</span>
+            <span data-value="5" class="active">★</span>
+          </div>
+
+          <form id="review-form" class="review-input-group">
+            <input type="text" id="review-text" required placeholder="Write your review...">
+            <button type="submit" class="review-submit-btn">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL (LOGIN / REGISTER) -->
+  <div id="auth-modal" class="auth-modal" hidden>
+
+    <button
+      class="modal-backdrop"
+      type="button"
+      data-close-auth
+      aria-label="Close auth modal"
+    ></button>
+
+    <div class="auth-card" role="dialog" aria-modal="true">
+
+      <button
+        id="close-auth-modal"
+        class="round-close modal-x"
+        type="button"
+        aria-label="Close"
+      >×</button>
+
+      <!-- LOGIN FORM -->
+      <div id="login-view">
+
+        <h2>Welcome Back ♡</h2>
+
+        <p>Please log in to your account to order.</p>
+
+        <div id="login-error" class="auth-error" hidden></div>
+
+        <form id="login-form">
+
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required placeholder="name@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+
+            <div class="password-wrapper">
+              <input type="password" id="login-password" required placeholder="••••••••">
+
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="login-password"
+                aria-label="Toggle password visibility"
+              >👁️‍🗨️</button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="primary-button"
+            style="width: 100%; margin-top: 10px;"
+          >
+            Log In
+          </button>
+
+        </form>
+
+        <div class="auth-switch">
+          Don't have an account? <a id="switch-to-register">Register</a>
+        </div>
+
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="register-view" hidden>
+
+        <h2>Create Account ♡</h2>
+
+        <p>Join Sugar Rush for sweet treats and deals.</p>
+
+        <div id="register-error" class="auth-error" hidden></div>
+
+        <form id="register-form">
+
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" required placeholder="Your name">
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" required placeholder="name@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+
+            <div class="password-wrapper">
+              <input type="password" id="reg-password" required placeholder="••••••••">
+
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="reg-password"
+                aria-label="Toggle password visibility"
+              >👁️‍🗨️</button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="primary-button"
+            style="width: 100%; margin-top: 10px;"
+          >
+            Register
+          </button>
+
+        </form>
+
+        <div class="auth-switch">
+          Already have an account? <a id="switch-to-login">Log In</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS -->
+  <div id="order-success" class="success-modal" hidden>
+
+    <div class="success-backdrop" data-close-success></div>
+
+    <div class="success-card" role="dialog" aria-modal="true" aria-labelledby="success-title">
+
+      <div class="success-hearts" id="success-hearts" aria-hidden="true"></div>
+
+      <div class="success-check">
+
+        <svg viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="check-circle" cx="26" cy="26" r="24" fill="none"></circle>
+          <path class="check-mark" fill="none" d="M14 27l8 8 16-17"></path>
+        </svg>
+
+      </div>
+
+      <h2 id="success-title">Order placed!</h2>
+
+      <p id="success-text"></p>
+
+      <p class="success-order-id" id="success-order-id"></p>
+
+      <button type="button" class="primary-button" id="success-close">
+        Back to the menu ♡
+      </button>
+
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="bottom-nav" aria-label="Quick navigation">
+
+    <a href="#home" class="bnav-item">
+      <span class="bnav-icon">⌂</span>
+      <span>Home</span>
+    </a>
+
+    <a href="#products" class="bnav-item">
+      <span class="bnav-icon">🍰</span>
+      <span>Menu</span>
+    </a>
+
+    <button type="button" class="bnav-item" id="bnav-wishlist">
+      <span class="bnav-icon">♥</span>
+      <span>Wishlist</span>
+      <b class="bnav-badge" id="bnav-wishlist-count" hidden>0</b>
+    </button>
+
+    <button type="button" class="bnav-item" id="bnav-cart">
+      <span class="bnav-icon">♡</span>
+      <span>Cart</span>
+      <b class="bnav-badge" id="bnav-cart-count" hidden>0</b>
+    </button>
+
+  </nav>
+
+  <div id="cart-toast" class="cart-toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
